@@ -3,7 +3,9 @@
   "version": "0.0.1-beta.0",
   "description": "",
   "main": "./lib/index.js",
-  "bin": "./lib/index.js",
+  "bin": {
+    "supernova": "node ./cli/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +14,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mustache": "^4.1.0"
+    "mustache": "^4.1.0",
+    "chalk": "^4.1.0",
+    "cli-table": "^0.3.1",
+    "commander": "^5.1.0",
+    "figlet": "^1.4.0",
+    "inquirer": "^7.3.0",
+    "shelljs": "^0.8.4"
   }
 }
