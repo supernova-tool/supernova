@@ -7,5 +7,5 @@ install:
 deploy:
   provider: script
   script: "cp .npmrc.template $HOME/.npmrc && npm publish"
-  on:
-    branches: main
+on:
+  branches: main
