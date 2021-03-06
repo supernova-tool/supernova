@@ -14,9 +14,10 @@ program
   .description("Creates a default folder with supernova project")
   .action((folder) => {
     try {
-      exec(`mkdir ${folder}`);
+      exec(`cp -r ${__dirname}/template ${folder}`);
       cd(folder);
       exec(`npm i`);
+      exec(`npm i @supernovajs/core`);
     } catch (e) {
       console.error(chalk.red(e.message));
     } finally {

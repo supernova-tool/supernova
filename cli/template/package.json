@@ -1,0 +1,9 @@
+{
+  "name": "supernova-app",
+  "version": "1.0.0",
+  "description": "A Javascript SSR Microframework App",
+  "license": "ISC",
+  "scripts": {
+    "start": "supernova start"
+  }
+}
