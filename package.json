@@ -1,7 +1,7 @@
 {
-  "name": "supernova",
+  "name": "@supernovajs/core",
   "version": "0.0.1-beta.0",
-  "description": "",
+  "description": "A Javascript SSR Microframework",
   "main": "./lib/index.js",
   "bin": {
     "supernova": "node ./cli/index.js"
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "brunobnascimento",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
@@ -21,5 +21,20 @@
     "figlet": "^1.4.0",
     "inquirer": "^7.3.0",
     "shelljs": "^0.8.4"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supernova-tool/supernova.git"
+  },
+  "bugs": {
+    "url": "https://github.com/supernova-tool/supernova/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/supernova-tool/supernova#readme"
 }
