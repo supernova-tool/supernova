@@ -4,7 +4,7 @@
   "description": "A Javascript SSR Microframework",
   "main": "./lib/index.js",
   "bin": {
-    "supernova": "node ./cli/index.js"
+    "supernova": "cli/index.js"
   },
   "scripts": {
     "test": "echo 'to be implemented'"
