@@ -1,7 +1,9 @@
 language: node_js
 node_js:
   - 14
-install:
-  - npm install
-script:
-  - npm publish
+deploy:
+  provider: script
+  script: "cp .npmrc.template $HOME/.npmrc && npm publish"
+  skip_cleanup: true
+  on:
+    tags: true

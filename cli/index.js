@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const program = require("commander");
-const inquirer = require("inquirer");
 const chalk = require("chalk");
 const { exec, cd } = require("shelljs");
 const start = require("../lib/");

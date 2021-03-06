@@ -13,13 +13,13 @@
   "author": "brunobnascimento",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mustache": "^4.1.0",
     "chalk": "^4.1.0",
     "cli-table": "^0.3.1",
     "commander": "^5.1.0",
+    "express": "^4.17.1",
     "figlet": "^1.4.0",
     "inquirer": "^7.3.0",
+    "mustache": "^4.1.0",
     "shelljs": "^0.8.4"
   },
   "directories": {
