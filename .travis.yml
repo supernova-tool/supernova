@@ -7,7 +7,7 @@ jobs:
     script: "sh ./scripts/pre-publish.sh"
     skip_cleanup: true
     on:
-      tags: "main"
+      branch: "main"
   deploy:
     provider: script
     script: "cp .npmrc.template $HOME/.npmrc && npm publish"
