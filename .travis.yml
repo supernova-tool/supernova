@@ -1,9 +1,16 @@
 language: node_js
 node_js:
   - 14
-deploy:
-  provider: script
-  script: "cp .npmrc.template $HOME/.npmrc && npm publish"
-  skip_cleanup: true
-  on:
-    tags: true
+jobs:
+  generate_patch:
+    provider: script
+    script: "sh ./scripts/pre-publish.sh"
+    skip_cleanup: true
+    on:
+      tags: "main"
+  deploy:
+    provider: script
+    script: "cp .npmrc.template $HOME/.npmrc && npm publish"
+    skip_cleanup: true
+    on:
+      tags: true

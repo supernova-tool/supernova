@@ -20,7 +20,7 @@ Run your project
 
 ## Code examples
 
-pages/hello/index.js
+**pages/hello/index.js**
 
 ```js
 module.exports = () => {
@@ -30,7 +30,7 @@ module.exports = () => {
 };
 ```
 
-pages/hello/index.html
+**pages/hello/index.html**
 
 ```html
 <!DOCTYPE html>
@@ -44,6 +44,19 @@ pages/hello/index.html
     {{meet}}
   </body>
 </html>
+```
+
+**pages/hello/style.scss**
+
+```scss
+.block {
+  &__element {
+    text-transform: capitalize;
+    &--modifier {
+      font-weight: bolder;
+    }
+  }
+}
 ```
 
 _Pro tip:_ You can change npm start script to run supernova start --port=8000 to run in port 8000 for example.
