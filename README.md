@@ -39,9 +39,15 @@ module.exports = () => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supernova Hello World!</title>
+    <link
+      rel="stylesheet preload prefetch"
+      type="text/css"
+      as="style"
+      href="/static/{{cssFileName}}"
+    />
   </head>
   <body>
-    {{meet}}
+    <p class="block__element--modifier">{{meet}}</p>
   </body>
 </html>
 ```
