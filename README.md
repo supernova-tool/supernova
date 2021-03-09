@@ -39,23 +39,28 @@ module.exports = () => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supernova Hello World!</title>
+    <link
+      rel="stylesheet preload prefetch"
+      type="text/css"
+      as="style"
+      href="/static/{{cssFileName}}"
+    />
   </head>
   <body>
-    {{meet}}
+    <p class="block__element--modifier">{{meet}}</p>
     <script type="application/javascript">
       !(function () {
-        // hot reload
-        var client = new WebSocket("ws://localhost:8080/", "echo-protocol");
-        (client.onerror = function () {
+        var o = new WebSocket("ws://localhost:8080/", "echo-protocol");
+        (o.onerror = function () {
           console.log("Connection Error");
         }),
-          (client.onopen = function () {
+          (o.onopen = function () {
             console.log("Server autoreload connected");
           }),
-          (client.onclose = function () {
+          (o.onclose = function () {
             console.log("Server autoreload disconnected");
           }),
-          (client.onmessage = function ({ data: o }) {
+          (o.onmessage = function ({ data: o }) {
             "string" == typeof o && "reload" === o && location.reload();
           });
       })();
