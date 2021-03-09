@@ -13,5 +13,22 @@
   </head>
   <body>
     <p class="meeting">{{meet}}</p>
+    <script type="application/javascript">
+      !(function () {
+        var client = new WebSocket("ws://localhost:8080/", "echo-protocol");
+        (client.onerror = function () {
+          console.log("Connection Error");
+        }),
+          (client.onopen = function () {
+            console.log("Server autoreload connected");
+          }),
+          (client.onclose = function () {
+            console.log("Server autoreload disconnected");
+          }),
+          (client.onmessage = function ({ data: o }) {
+            "string" == typeof o && "reload" === o && location.reload();
+          });
+      })();
+    </script>
   </body>
 </html>

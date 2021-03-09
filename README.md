@@ -16,7 +16,7 @@ Create your project
 
 Run your project
 
-`cd my-app && npm start`
+`cd my-app && npm run dev`
 
 ## Code examples
 
@@ -42,6 +42,24 @@ module.exports = () => {
   </head>
   <body>
     {{meet}}
+    <script type="application/javascript">
+      !(function () {
+        // hot reload
+        var client = new WebSocket("ws://localhost:8080/", "echo-protocol");
+        (client.onerror = function () {
+          console.log("Connection Error");
+        }),
+          (client.onopen = function () {
+            console.log("Server autoreload connected");
+          }),
+          (client.onclose = function () {
+            console.log("Server autoreload disconnected");
+          }),
+          (client.onmessage = function ({ data: o }) {
+            "string" == typeof o && "reload" === o && location.reload();
+          });
+      })();
+    </script>
   </body>
 </html>
 ```
@@ -60,3 +78,17 @@ module.exports = () => {
 ```
 
 _Pro tip:_ You can change npm start script to run supernova start --port=8000 to run in port 8000 for example.
+
+## CLI
+
+### Start a dev server with hot reload
+
+`npm run dev`
+
+### Start a production ready server
+
+`npm start`
+
+### Generate page
+
+`npm run generate-page <name>`
