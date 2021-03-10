@@ -49,7 +49,7 @@ module.exports = () => {
       href="/static/{{cssFileName}}"
     />
     {{#dev}}
-    <script type="application/javascript" src="{{clientScriptFileName}}" async></script>
+    <script type="application/javascript" src="/static/{{clientScriptFileName}}" async></script>
     {{/dev}}
   </head>
   <body>
