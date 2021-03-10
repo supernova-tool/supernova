@@ -32,6 +32,7 @@ program
   .parse()
   .action(({ port }) => {
     try {
+      process.env.NODE_ENV = 'production'
       start(port);
     } catch (e) {
       console.error(chalk.red(e.message));
@@ -47,6 +48,7 @@ program
   .parse()
   .action(({ port }) => {
     try {
+      process.env.NODE_ENV = 'development'
       reloadWatcher();
       start(port);
     } catch (e) {

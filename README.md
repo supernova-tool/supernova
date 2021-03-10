@@ -25,9 +25,12 @@ Run your project
 ```js
 module.exports = () => {
   return {
-    meet: "Hellow world!",
+    data: {
+      meet: "Hellow world!",
+    }
   };
 };
+
 ```
 
 **pages/hello/index.html**
@@ -45,26 +48,12 @@ module.exports = () => {
       as="style"
       href="/static/{{cssFileName}}"
     />
+    {{#dev}}
+    <script type="application/javascript" src="{{clientScriptFileName}}" async></script>
+    {{/dev}}
   </head>
   <body>
-    <p class="block__element--modifier">{{meet}}</p>
-    <script type="application/javascript">
-      !(function () {
-        var o = new WebSocket("ws://localhost:8080/", "echo-protocol");
-        (o.onerror = function () {
-          console.log("Connection Error");
-        }),
-          (o.onopen = function () {
-            console.log("Server autoreload connected");
-          }),
-          (o.onclose = function () {
-            console.log("Server autoreload disconnected");
-          }),
-          (o.onmessage = function ({ data: o }) {
-            "string" == typeof o && "reload" === o && location.reload();
-          });
-      })();
-    </script>
+    <p class="meeting">{{meet}}</p>
   </body>
 </html>
 ```
