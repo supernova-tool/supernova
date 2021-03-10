@@ -22,8 +22,10 @@ Run your project
 
 **pages/hello/index.js**
 
+You have an async default exported function that returns an object with data property.
+
 ```js
-module.exports = () => {
+module.exports = async () => {
   return {
     data: {
       meet: "Hellow world!",
@@ -34,6 +36,8 @@ module.exports = () => {
 ```
 
 **pages/hello/index.html**
+
+You can use data object from your index.js here to template your html
 
 ```html
 <!DOCTYPE html>
