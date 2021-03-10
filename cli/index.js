@@ -2,7 +2,7 @@
 
 const program = require("commander");
 const chalk = require("chalk");
-const { exec, cd } = require("shelljs");
+const { exec, cd, cp } = require("shelljs");
 const start = require("../lib/");
 const package = require("../package.json");
 const reloadWatcher = require("../lib/src/reloadWatcher");
@@ -14,7 +14,7 @@ program
   .description("Creates a default folder with supernova project")
   .action((folder) => {
     try {
-      exec(`cp -r ${__dirname}/template ${folder}`);
+      cp('-R', `${__dirname}/template`, folder);
       cd(folder);
       exec(`npm i`);
       exec(`npm i @supernovajs/core`);
@@ -61,8 +61,8 @@ program
   .description("Creates a default folder with supernova project")
   .action((folder) => {
     try {
-      exec(
-        `cp -r ${__dirname}/template/pages/hello ${process.cwd()}/pages/${folder}`
+      cp(
+        '-R', `${__dirname}/template/pages/hello`, `${process.cwd()}/pages/${folder}`
       );
     } catch (e) {
       console.error(chalk.red(e.message));
