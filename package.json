@@ -24,8 +24,10 @@
     "mustache": "^4.1.0",
     "node-sass": "^5.0.0",
     "shelljs": "^0.8.4",
+    "webpack": "^5.25.0",
     "websocket": "^1.0.33",
-    "webpack": "^5.25.0"
+    "workbox-routing": "^6.1.1",
+    "workbox-strategies": "^6.1.1"
   },
   "directories": {
     "lib": "lib"
