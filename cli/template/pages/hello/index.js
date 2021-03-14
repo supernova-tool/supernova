@@ -1,7 +1,7 @@
 module.exports = () => {
   return {
     data: {
-      meet: "Hellow world!",
-    }
+      meet: "Hello world!",
+    },
   };
 };

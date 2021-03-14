@@ -10,9 +10,11 @@
       as="style"
       href="/static/{{cssFileName}}"
     />
-    {{#dev}}
-    <script type="application/javascript" src="/static/{{clientScriptFileName}}" async></script>
-    {{/dev}}
+    <script
+      type="application/javascript"
+      src="/static/{{clientScriptFileName}}"
+      async
+    ></script>
   </head>
   <body>
     <p class="meeting">{{meet}}</p>

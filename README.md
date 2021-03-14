@@ -1,8 +1,15 @@
-# SupernovaJS &middot; [![Build Status](https://travis-ci.org/supernova-tool/supernova.svg?branch=main)](https://travis-ci.org/supernova-tool/supernova)
+# [SupernovaJS](https://supernova-tool.js.org/) &middot; [![Build Status](https://travis-ci.org/supernova-tool/supernova.svg?branch=main)](https://travis-ci.org/supernova-tool/supernova)
 
 ## The SSR Microframework
 
 Write a ssr high performance app with vanilla js and pure HTML.
+
+## Features
+
+- SSR
+- Lazy load images
+- SASS compilation
+- Easy Routing
 
 ## Get Started
 
@@ -28,11 +35,10 @@ You have an async default exported function that returns an object with data pro
 module.exports = async () => {
   return {
     data: {
-      meet: "Hellow world!",
-    }
+      meet: "Hello world!",
+    },
   };
 };
-
 ```
 
 **pages/hello/index.html**
@@ -52,9 +58,11 @@ You can use data object from your index.js here to template your html
       as="style"
       href="/static/{{cssFileName}}"
     />
-    {{#dev}}
-    <script type="application/javascript" src="/static/{{clientScriptFileName}}" async></script>
-    {{/dev}}
+    <script
+      type="application/javascript"
+      src="/static/{{clientScriptFileName}}"
+      async
+    ></script>
   </head>
   <body>
     <p class="meeting">{{meet}}</p>
@@ -65,13 +73,8 @@ You can use data object from your index.js here to template your html
 **pages/hello/style.scss**
 
 ```scss
-.block {
-  &__element {
-    text-transform: capitalize;
-    &--modifier {
-      font-weight: bolder;
-    }
-  }
+.meeting {
+  font-weight: bolder;
 }
 ```
 

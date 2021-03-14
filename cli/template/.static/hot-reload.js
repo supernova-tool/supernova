@@ -1,1 +1,0 @@
-!function(){var o=new WebSocket("ws://localhost:8080/","echo-protocol");o.onerror=function(){console.log("Connection Error")},o.onopen=function(){console.log("Server autoreload connected")},o.onclose=function(){console.log("Server autoreload disconnected")},o.onmessage=function({data:o}){"string"==typeof o&&"reload"===o&&location.reload()}}();
