@@ -11,6 +11,7 @@ const package = require("../package.json");
 const reloadWatcher = require("../lib/src/reloadWatcher");
 
 const webpackCompileClient = function () {
+  console.log(chalk.green("Compiling client code"));
   return new Promise(function (resolve, reject) {
     webpack(
       {
@@ -20,7 +21,34 @@ const webpackCompileClient = function () {
         output: {
           path: path.resolve(__dirname, "./template/.static"),
           filename: "supernova-client.js",
-          clean: true,
+        },
+      },
+      (err, stats) => {
+        const [filename] = Object.keys(stats.compilation.assetsInfo);
+        resolve(filename);
+
+        if (err || stats.hasErrors()) {
+          reject(err);
+        }
+      }
+    );
+  });
+};
+
+const webPackCompileServiceWorker = function () {
+  console.log(chalk.green("Compiling Service Workers code"));
+  return new Promise(function (resolve, reject) {
+    webpack(
+      {
+        entry: path.resolve(
+          __dirname,
+          "../lib/src/client/service-worker-entrypoint.js"
+        ),
+        mode: "production",
+        stats: "verbose",
+        output: {
+          path: path.resolve(__dirname, "./template/.static"),
+          filename: "caches-sw.js",
         },
       },
       (err, stats) => {
@@ -43,6 +71,7 @@ program
   .action(async (folder) => {
     try {
       await webpackCompileClient();
+      await webPackCompileServiceWorker();
       console.log(chalk.green(`Compiled supernova-client.js`));
       cp("-R", `${__dirname}/template`, folder);
       cd(folder);
@@ -66,8 +95,6 @@ program
       start(port);
     } catch (e) {
       console.error(chalk.red(e.message));
-    } finally {
-      console.log(chalk.green("Done!"));
     }
   });
 
@@ -78,13 +105,12 @@ program
   .parse()
   .action(({ port }) => {
     try {
+      console.clear();
       process.env.NODE_ENV = "development";
       reloadWatcher();
       start(port);
     } catch (e) {
       console.error(chalk.red(e.message));
-    } finally {
-      console.log(chalk.green("Done!"));
     }
   });
 
